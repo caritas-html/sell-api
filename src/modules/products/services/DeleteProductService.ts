@@ -1,9 +1,9 @@
 import AppError from "@shared/errors/AppError";
 import { getCustomRepository } from "typeorm";
-import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
+import ProductRepository from "../typeorm/repositories/ProductsRepository";
 
 interface IRequest {
-  id: number;
+  id: string;
 }
 
 class DeleteProductService {

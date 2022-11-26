@@ -5,9 +5,13 @@
   "username": "postgres",
   "password": "postgrespw",
   "database": "postgres-container",
+  "entities": [
+    "./src/modules/**/typeorm/entities/*.ts"
+  ],
   "migrations": [
     "./src/shared/typeorm/migrations/*.ts"
   ],
+  "synchronize": true,
   "cli": {
     "migrationsDir": "./src/shared/typeorm/migrations"
   }
