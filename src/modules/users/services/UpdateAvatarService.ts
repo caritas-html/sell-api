@@ -3,8 +3,9 @@ import UsersRepository from "../typeorm/repositories/UsersRepository";
 import path from "path";
 import fs from "fs";
 import uploadConfig from "@config/upload";
+import { getCustomRepository } from "typeorm";
 
-// if the user is authenticated, it will be used
+// Only if the user is authenticated, it will be used
 interface IRequest {
   userId: string;
   avatarFilename: string;
@@ -12,7 +13,7 @@ interface IRequest {
 
 class UpdateAvatarService {
   public async execute({ userId, avatarFilename }: IRequest) {
-    const usersRepository = new UsersRepository();
+    const usersRepository = getCustomRepository(UsersRepository);
     const user = await usersRepository.findById(userId);
 
     if (!user) throw new AppError("User not found!");
