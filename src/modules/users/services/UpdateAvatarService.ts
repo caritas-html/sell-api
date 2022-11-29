@@ -22,6 +22,7 @@ class UpdateAvatarService {
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
       const userAvatarExists = await fs.promises.stat(userAvatarFilePath); // return a promise with the status code of the path
 
+      // unlink remove from filesystem the avatar photo
       if (userAvatarExists) await fs.promises.unlink(userAvatarFilePath);
     }
     user.avatar = avatarFilename;
