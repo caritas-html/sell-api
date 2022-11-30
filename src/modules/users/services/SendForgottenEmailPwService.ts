@@ -16,7 +16,8 @@ class SendForgottenEmailPwService {
 
     if (!user) throw new AppError("User not found!");
 
-    await userTokenRepository.generate(user.id);
+    const userToken = await userTokenRepository.generate(user.id);
+    console.log(userToken); // simulates email sent
   }
 }
 
