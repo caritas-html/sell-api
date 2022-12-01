@@ -24,7 +24,7 @@ class CreateSessionService {
     if (!user)
       throw new AppError("Failed to login, incorrect password/email", 401);
 
-    const passwordConfirmed = compare(password, user.password);
+    const passwordConfirmed = await compare(password, user.password);
 
     if (!passwordConfirmed)
       throw new AppError("Failed to login, incorrect password/email", 401);
